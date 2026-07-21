@@ -6,10 +6,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Entidad MAESTRO: Habitacion
- * Una habitacion puede tener muchas reservaciones (1:N).
- */
+
 @Entity
 @Table(name = "habitaciones")
 public class Habitacion {
@@ -31,11 +28,7 @@ public class Habitacion {
     @Column(name = "disponible", nullable = false)
     private Boolean disponible = true;
 
-    /**
-     * Relacion maestro-detalle:
-     * CascadeType.ALL -> al guardar/eliminar una Habitacion,
-     * sus Reservaciones se guardan/eliminan automaticamente.
-     */
+
     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Reservacion> reservaciones = new ArrayList<>();
@@ -51,7 +44,7 @@ public class Habitacion {
         this.disponible = disponible;
     }
 
-    // ===== Metodo auxiliar para mantener sincronizados ambos lados de la relacion =====
+    // ===== Metodo
     public void agregarReservacion(Reservacion reservacion) {
         reservaciones.add(reservacion);
         reservacion.setHabitacion(this);

@@ -5,10 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-/**
- * Entidad DETALLE: Reservacion
- * Muchas reservaciones pertenecen a una habitacion (N:1).
- */
+
 @Entity
 @Table(name = "reservaciones")
 public class Reservacion {
@@ -33,9 +30,7 @@ public class Reservacion {
     @Column(name = "estado", nullable = false, length = 30)
     private String estado; // CONFIRMADA, CANCELADA, FINALIZADA
 
-    /**
-     * Llave foranea hacia la entidad maestro (Habitacion).
-     */
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_habitacion", nullable = false)
     @JsonBackReference
