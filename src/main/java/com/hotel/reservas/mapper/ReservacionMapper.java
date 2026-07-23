@@ -1,5 +1,6 @@
 package com.hotel.reservas.mapper;
 
+import com.hotel.reservas.domain.reservation;
 import com.hotel.reservas.entity.Reservacion;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,7 +18,7 @@ public interface ReservacionMapper {
      * mapeo explicito de la propiedad anidada.
      */
     @Mapping(source = "habitacion.idHabitacion", target = "idHabitacion")
-    com.hotel.reservas.domain.Reservacion toDomain(Reservacion entity);
+    reservation toDomain(Reservacion entity);
 
     /**
      * El dominio solo conoce el idHabitacion, no la entidad Habitacion completa.
@@ -25,12 +26,12 @@ public interface ReservacionMapper {
      * por lo que aqui se ignora explicitamente.
      */
     @Mapping(target = "habitacion", ignore = true)
-    Reservacion toEntity(com.hotel.reservas.domain.Reservacion domain);
+    Reservacion toEntity(reservation domain);
 
     /**
      * Actualiza una entidad existente con los datos del dominio sin tocar la
      * relacion con Habitacion (util para operaciones de actualizacion parcial).
      */
     @Mapping(target = "habitacion", ignore = true)
-    void actualizarEntity(com.hotel.reservas.domain.Reservacion domain, @MappingTarget Reservacion entity);
+    void actualizarEntity(reservation domain, @MappingTarget Reservacion entity);
 }

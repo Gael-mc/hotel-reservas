@@ -7,21 +7,21 @@ import java.util.List;
  * Modelo de dominio de Habitacion.
  * POJO puro, sin anotaciones de JPA, desacoplado de la capa de persistencia.
  */
-public class Habitacion {
+public class Room {
 
     private Integer idHabitacion;
     private Integer numero;
     private String tipo;
     private Double precioPorNoche;
     private Boolean disponible;
-    private List<Reservacion> reservaciones = new ArrayList<>();
+    private List<reservation> reservaciones = new ArrayList<>();
 
     // ===== Constructores =====
-    public Habitacion() {
+    public Room() {
     }
 
-    public Habitacion(Integer idHabitacion, Integer numero, String tipo,
-                       Double precioPorNoche, Boolean disponible) {
+    public Room(Integer idHabitacion, Integer numero, String tipo,
+                Double precioPorNoche, Boolean disponible) {
         this.idHabitacion = idHabitacion;
         this.numero = numero;
         this.tipo = tipo;
@@ -70,11 +70,11 @@ public class Habitacion {
         this.disponible = disponible;
     }
 
-    public List<Reservacion> getReservaciones() {
+    public List<reservation> getReservaciones() {
         return reservaciones;
     }
 
-    public void setReservaciones(List<Reservacion> reservaciones) {
+    public void setReservaciones(List<reservation> reservaciones) {
         this.reservaciones = reservaciones;
     }
 }

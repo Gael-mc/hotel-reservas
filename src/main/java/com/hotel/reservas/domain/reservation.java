@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * ciclo entidad<->dominio innecesario), el dominio conserva unicamente el
  * identificador de la habitacion asociada (idHabitacion).
  */
-public class Reservacion {
+public class reservation {
 
     private Integer idReservacion;
     private String nombreCliente;
@@ -21,11 +21,11 @@ public class Reservacion {
     private Integer idHabitacion;
 
     // ===== Constructores =====
-    public Reservacion() {
+    public reservation() {
     }
 
-    public Reservacion(Integer idReservacion, String nombreCliente, LocalDate fechaEntrada,
-                        LocalDate fechaSalida, Double total, String estado, Integer idHabitacion) {
+    public reservation(Integer idReservacion, String nombreCliente, LocalDate fechaEntrada,
+                       LocalDate fechaSalida, Double total, String estado, Integer idHabitacion) {
         this.idReservacion = idReservacion;
         this.nombreCliente = nombreCliente;
         this.fechaEntrada = fechaEntrada;
